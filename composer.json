@@ -30,5 +30,15 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "scripts": {
+        "tests": [
+            "vendor/bin/phpunit tests",
+            "vendor/bin/phpstan",
+            "vendor/bin/psalm",
+            "vendor/bin/phpcs --standard=PSR12 src tests",
+            "vendor/bin/phpmd src text  cleancode, codesize, controversial, design, naming",
+            "vendor/bin/phpmd tests text  cleancode, codesize, controversial, design, naming"
+        ]
     }
 }
